@@ -1,7 +1,9 @@
 # ⚡ ENTSO-E Energieprijzen voor Home Assistant
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge)][hacs]
-[![Project Maintenance][maintenance_badge]](https://github.com/Malosaaa/ha-p2000)
+[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz/)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/DonTranQuiL/entsoe_prijzen/releases)
+[![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/DonTranQuiL/entsoe_prijzen/commits/main)
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2024.5+-blue.svg)](https://www.home-assistant.io/)
 
 Een efficiënte, razendsnelle en robuuste Home Assistant integratie die de officiële Day-Ahead elektriciteitsprijzen ophaalt via het Europese ENTSO-E Transparency Platform. Ideaal voor het automatiseren van grootverbruikers (zoals laadpalen en warmtepompen) op basis van dynamische stroomprijzen.
 
@@ -138,6 +140,3 @@ content: >-
 ```
 <img width="504" height="747" alt="{A1B9F634-537C-44C2-A797-697F810510F4}" src="https://github.com/user-attachments/assets/2ff18ea7-6b0c-43a6-b899-5ac4b4118ccc" />
 
-[hacs]: https://hacs.xyz
-[hacs_badge]: https://img.shields.io/badge/HACS-Custom-41BDF5.svg?style=for-the-badge
-[maintenance_badge]: https://img.shields.io/badge/Maintained%3F-yes-green.svg?style=for-the-badge
