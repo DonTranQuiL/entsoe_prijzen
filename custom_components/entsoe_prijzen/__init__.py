@@ -33,8 +33,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             import os
             debug_path = os.path.join(os.path.dirname(__file__), f"entsoe_debug_{coord.domain_id}.txt")
             if os.path.exists(debug_path):
-                try: os.remove(debug_path)
-                except Exception: pass
+                try: 
+                    os.remove(debug_path)
+                except Exception: 
+                    pass
 
     hass.services.async_register(DOMAIN, "refresh", handle_refresh)
     hass.services.async_register(DOMAIN, "clear_files", handle_clear_files)
