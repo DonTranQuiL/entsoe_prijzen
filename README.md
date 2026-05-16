@@ -1,9 +1,11 @@
 # ⚡ ENTSO-E Energieprijzen voor Home Assistant
 
 [![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg)](https://hacs.xyz/)
-[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/DonTranQuiL/entsoe_prijzen/releases)
 [![Maintained](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/DonTranQuiL/entsoe_prijzen/commits/main)
 [![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2024.5+-blue.svg)](https://www.home-assistant.io/)
+[![Code Checker](https://github.com/DonTranQuiL/entsoe_prijzen/actions/workflows/codechecker.yml/badge.svg)](https://github.com/DonTranQuiL/entsoe_prijzen/actions)
+[![HACS Validation](https://github.com/DonTranQuiL/entsoe_prijzen/actions/workflows/hacs.yaml/badge.svg)](https://github.com/DonTranQuiL/entsoe_prijzen/actions)
+[![GitHub Release](https://img.shields.io/github/v/release/DonTranQuiL/entsoe_prijzen?style=flat-square)](https://github.com/DonTranQuiL/entsoe_prijzen/releases)
 
 Een efficiënte, razendsnelle en robuuste Home Assistant integratie die de officiële Day-Ahead elektriciteitsprijzen ophaalt via het Europese ENTSO-E Transparency Platform. Ideaal voor het automatiseren van grootverbruikers (zoals laadpalen en warmtepompen) op basis van dynamische stroomprijzen.
 
