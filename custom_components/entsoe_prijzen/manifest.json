@@ -1,16 +1,17 @@
 {
   "domain": "entsoe_prijzen",
   "name": "ENTSO-E Energieprijzen",
-  "config_flow": true,
-  "documentation": "https://github.com/Malosaaa/ha-entsoe-prijzen",
-  "issue_tracker": "https://github.com/Malosaaa/ha-entsoe-prijzen/issues",
-  "codeowners": [
-    "@Malosaaa"
-  ],
-  "requirements": [],
-  "iot_class": "cloud_polling",
-  "version": "1.0.1",
-  "dependencies": [],
   "after_dependencies": [],
-  "integration_type": "service"
+  "codeowners": [
+    "@malosaaa"
+  ],
+  "config_flow": true,
+  "dependencies": [],
+  "documentation": "https://github.com/Malosaaa/ha-entsoe-prijzen",
+  "integration_type": "service",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Malosaaa/ha-entsoe-prijzen/issues",
+  "quality_scale": "bronze",
+  "requirements": [],
+  "version": "1.0.1"
 }
