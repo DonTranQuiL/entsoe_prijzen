@@ -29,8 +29,10 @@ class EntsoeCoordinator(DataUpdateCoordinator):
 
     def _write_debug_file_sync(self, debug_path, content):
         try:
-            with open(debug_path, "w", encoding="utf-8") as f: f.write(content)
-        except Exception: pass
+            with open(debug_path, "w", encoding="utf-8") as f: 
+                f.write(content)
+        except Exception:
+            pass
 
     async def _async_update_data(self):
         if self._is_first_run and self.last_data:
@@ -65,30 +67,37 @@ class EntsoeCoordinator(DataUpdateCoordinator):
                 # Verwijder XML namespaces
                 root = ET.fromstring(xml_data)
                 for elem in root.iter():
-                    if '}' in elem.tag: elem.tag = elem.tag.split('}', 1)[1]
+                    if '}' in elem.tag: 
+                        elem.tag = elem.tag.split('}', 1)[1]
 
                 prices = []
                 for timeseries in root.findall('.//TimeSeries'):
                     period = timeseries.find('.//Period')
-                    if period is None: continue
+                    if period is None:
+                        continue
                     
                     # Bepaal resolutie (PT15M = 15 min, PT60M = 60 min)
                     res_str = period.findtext('resolution', 'PT60M')
                     delta = timedelta(hours=1)
-                    if res_str == 'PT15M': delta = timedelta(minutes=15)
-                    elif res_str == 'PT30M': delta = timedelta(minutes=30)
+                    if res_str == 'PT15M': 
+                        delta = timedelta(minutes=15)
+                    elif res_str == 'PT30M': 
+                        delta = timedelta(minutes=30)
                     
                     start_str = period.findtext('.//timeInterval/start')
-                    if not start_str: continue
+                    if not start_str:
+                        continue
                     
                     try:
                         base_time = datetime.fromisoformat(start_str.replace('Z', '+00:00'))
-                    except Exception: continue
+                    except Exception:
+                        continue
 
                     for point in period.findall('.//Point'):
                         pos_str = point.findtext('position')
                         price_str = point.findtext('price.amount')
-                        if not pos_str or not price_str: continue
+                        if not pos_str or not price_str:
+                            continue
                         
                         pos = int(pos_str)
                         price_mwh = float(price_str)
