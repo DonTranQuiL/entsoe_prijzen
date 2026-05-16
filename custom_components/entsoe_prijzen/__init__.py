@@ -7,19 +7,22 @@ from .cache import EntsoeCache
 
 _LOGGER = logging.getLogger(__name__)
 
+
 async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     cache_module = EntsoeCache(hass, entry.data["domain_id"])
     coordinator = EntsoeCoordinator(hass, entry, cache_module)
-    
+
     # Laad de cache razendsnel in tijdens opstarten
     coordinator.last_data = await hass.async_add_executor_job(cache_module.load_cache)
-    
+
     if coordinator.last_data:
         coordinator.data = coordinator.last_data
-        entry.async_create_background_task(hass, coordinator.async_request_refresh(), "entsoe_bg_refresh")
+        entry.async_create_background_task(
+            hass, coordinator.async_request_refresh(), "entsoe_bg_refresh"
+        )
     else:
         await coordinator.async_config_entry_first_refresh()
-    
+
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
 
     async def handle_refresh(call: ServiceCall):
@@ -31,11 +34,14 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
             await hass.async_add_executor_job(coord.cache.clear_cache)
             # Ook debug files opschonen, vereist even wat pad-logica
             import os
-            debug_path = os.path.join(os.path.dirname(__file__), f"entsoe_debug_{coord.domain_id}.txt")
+
+            debug_path = os.path.join(
+                os.path.dirname(__file__), f"entsoe_debug_{coord.domain_id}.txt"
+            )
             if os.path.exists(debug_path):
-                try: 
+                try:
                     os.remove(debug_path)
-                except Exception: 
+                except Exception:
                     pass
 
     hass.services.async_register(DOMAIN, "refresh", handle_refresh)
@@ -45,8 +51,10 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     entry.async_on_unload(entry.add_update_listener(update_listener))
     return True
 
+
 async def update_listener(hass: HomeAssistant, entry: ConfigEntry):
     await hass.config_entries.async_reload(entry.entry_id)
+
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     unload_ok = await hass.config_entries.async_unload_platforms(entry, PLATFORMS)

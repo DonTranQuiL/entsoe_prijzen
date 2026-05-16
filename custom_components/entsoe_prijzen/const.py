@@ -3,7 +3,7 @@ CONF_API_TOKEN = "api_token"
 CONF_DOMAIN_ID = "domain_id"
 CONF_SCAN_INTERVAL = "scan_interval"
 
-DEFAULT_SCAN_INTERVAL = 3600 # 1x per uur updaten is genoeg voor day-ahead
+DEFAULT_SCAN_INTERVAL = 3600  # 1x per uur updaten is genoeg voor day-ahead
 
 DOMAINS = {
     "10YNL----------L": "NL - Nederland (15 min)",

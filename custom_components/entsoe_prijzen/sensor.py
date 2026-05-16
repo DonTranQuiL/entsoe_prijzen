@@ -5,17 +5,21 @@ from homeassistant.helpers.entity import DeviceInfo, EntityCategory
 from homeassistant.util import dt as dt_util
 from .const import DOMAIN, DOMAINS
 
+
 async def async_setup_entry(hass, entry, async_add_entities):
     coordinator = hass.data[DOMAIN][entry.entry_id]
     domain_id = entry.data["domain_id"]
     country_name = DOMAINS.get(domain_id, "Onbekend").split(" - ")[0]
-    
-    async_add_entities([
-        EntsoeCurrentPriceSensor(coordinator, domain_id, country_name),
-        EntsoeLastUpdateSensor(coordinator, domain_id, country_name),
-        EntsoeLastUpdateStatusSensor(coordinator, domain_id, country_name),
-        EntsoeConsecutiveErrorsSensor(coordinator, domain_id, country_name),
-    ])
+
+    async_add_entities(
+        [
+            EntsoeCurrentPriceSensor(coordinator, domain_id, country_name),
+            EntsoeLastUpdateSensor(coordinator, domain_id, country_name),
+            EntsoeLastUpdateStatusSensor(coordinator, domain_id, country_name),
+            EntsoeConsecutiveErrorsSensor(coordinator, domain_id, country_name),
+        ]
+    )
+
 
 class EntsoeBaseEntity(CoordinatorEntity, SensorEntity):
     def __init__(self, coordinator, domain_id, country_name):
@@ -34,6 +38,7 @@ class EntsoeBaseEntity(CoordinatorEntity, SensorEntity):
             model="Transparency Platform API",
         )
 
+
 class EntsoeCurrentPriceSensor(EntsoeBaseEntity):
     def __init__(self, coordinator, domain_id, country_name):
         super().__init__(coordinator, domain_id, country_name)
@@ -46,9 +51,9 @@ class EntsoeCurrentPriceSensor(EntsoeBaseEntity):
     def state(self):
         if not self.coordinator.data:
             return None
-        
+
         now_utc = dt_util.utcnow()
-        
+
         # Loop door de lijst en zoek het actuele tijdvak. Omdat we niet exact de lengte
         # van het tijdvak weten (15m of 60m), zoeken we de laatste timestamp in het
         # verleden, aannemende dat dat het huidige blok is.
@@ -59,10 +64,10 @@ class EntsoeCurrentPriceSensor(EntsoeBaseEntity):
                 if item_time <= now_utc:
                     current_price = item["price_kwh"]
                 else:
-                    break # We zijn de huidige tijd voorbij, stop met zoeken
+                    break  # We zijn de huidige tijd voorbij, stop met zoeken
             except Exception:
                 continue
-                
+
         return current_price
 
     @property
@@ -70,9 +75,8 @@ class EntsoeCurrentPriceSensor(EntsoeBaseEntity):
         if not self.coordinator.data:
             return {}
         # Geef de volledige dataset mee zodat je in Markdown grafieken kunt bouwen
-        return {
-            "all_prices": self.coordinator.data
-        }
+        return {"all_prices": self.coordinator.data}
+
 
 class EntsoeLastUpdateSensor(EntsoeBaseEntity):
     def __init__(self, coordinator, domain_id, country_name):
@@ -85,9 +89,13 @@ class EntsoeLastUpdateSensor(EntsoeBaseEntity):
 
     @property
     def state(self):
-        if hasattr(self.coordinator, "last_update_success_timestamp") and self.coordinator.last_update_success_timestamp:
+        if (
+            hasattr(self.coordinator, "last_update_success_timestamp")
+            and self.coordinator.last_update_success_timestamp
+        ):
             return self.coordinator.last_update_success_timestamp
         return None
+
 
 class EntsoeLastUpdateStatusSensor(EntsoeBaseEntity):
     def __init__(self, coordinator, domain_id, country_name):
@@ -99,7 +107,10 @@ class EntsoeLastUpdateStatusSensor(EntsoeBaseEntity):
 
     @property
     def state(self):
-        return "Success" if getattr(self.coordinator, "error_count", 0) == 0 else "Error"
+        return (
+            "Success" if getattr(self.coordinator, "error_count", 0) == 0 else "Error"
+        )
+
 
 class EntsoeConsecutiveErrorsSensor(EntsoeBaseEntity):
     def __init__(self, coordinator, domain_id, country_name):
