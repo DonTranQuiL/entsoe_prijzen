@@ -11,6 +11,7 @@ from custom_components.entsoe_prijzen.const import (
     DEFAULT_SCAN_INTERVAL,
 )
 
+
 @pytest.fixture(autouse=True)
 def auto_enable_custom_integrations(enable_custom_integrations):
     """Enable loading custom components during testing."""
