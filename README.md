@@ -6,22 +6,22 @@
 
 <p align="center">
   <!-- Release / License -->
-  <a href="https://github.com/DonTranQuiL/virtual-battery-controller/releases">
-    <img src="https://img.shields.io/github/v/release/DonTranQuiL/virtual-battery-controller?style=for-the-badge&color=007ec6" alt="Latest Release">
+  <a href="https://github.com/DonTranQuiL/entsoe_prijzen/releases">
+    <img src="https://img.shields.io/github/v/release/DonTranQuiL/entsoe_prijzen?style=for-the-badge&color=007ec6" alt="Latest Release">
   </a>
-  <a href="https://github.com/DonTranQuiL/virtual-battery-controller/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/DonTranQuiL/virtual-battery-controller?style=for-the-badge&color=007ec6" alt="License">
+  <a href="https://github.com/DonTranQuiL/entsoe_prijzen/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/DonTranQuiL/entsoe_prijzen?style=for-the-badge&color=007ec6" alt="License">
   </a>
 
   <!-- CI / Quality -->
-  <a href="https://github.com/DonTranQuiL/virtual-battery-controller/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/DonTranQuiL/virtual-battery-controller/codechecker.yml?style=for-the-badge&label=CODE%20CHECKS&color=5dbb0f" alt="Code Checks">
+  <a href="https://github.com/DonTranQuiL/entsoe_prijzen/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/DonTranQuiL/entsoe_prijzen/codechecker.yml?style=for-the-badge&label=CODE%20CHECKS&color=5dbb0f" alt="Code Checks">
   </a>
-  <a href="https://github.com/DonTranQuiL/virtual-battery-controller/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/DonTranQuiL/virtual-battery-controller/pytest.yml?style=for-the-badge&label=TESTS&color=5dbb0f" alt="Tests">
+  <a href="https://github.com/DonTranQuiL/entsoe_prijzen/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/DonTranQuiL/entsoe_prijzen/pytest.yml?style=for-the-badge&label=TESTS&color=5dbb0f" alt="Tests">
   </a>
-  <a href="https://github.com/DonTranQuiL/virtual-battery-controller/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/DonTranQuiL/virtual-battery-controller/hacs.yaml?style=for-the-badge&label=HACS%20VALIDATION&color=5dbb0f" alt="HACS Validation">
+  <a href="https://github.com/DonTranQuiL/entsoe_prijzen/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/DonTranQuiL/entsoe_prijzen/hacs.yaml?style=for-the-badge&label=HACS%20VALIDATION&color=5dbb0f" alt="HACS Validation">
   </a>
 
   <!-- Code Quality -->
@@ -31,9 +31,9 @@
   <a href="https://github.com/astral-sh/ruff">
     <img src="https://img.shields.io/badge/code%20style-ruff-000000?style=for-the-badge" alt="Ruff">
   </a>
-  <a href="https://codecov.io/gh/DonTranQuiL/virtual-battery-controller">
+  <a href="https://codecov.io/gh/DonTranQuiL/entsoe_prijzen">
   <img 
-    src="https://codecov.io/gh/DonTranQuiL/virtual-battery-controller/branch/main/graph/badge.svg"
+    src="https://codecov.io/gh/DonTranQuiL/entsoe_prijzen/branch/main/graph/badge.svg"
     alt="Coverage"
     style="height:28px;"
   >
