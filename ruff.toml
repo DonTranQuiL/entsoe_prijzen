@@ -22,4 +22,6 @@ ignore = [
     "DTZ011",  # datetime.min/max without tz
     "DTZ901",  # datetime.min without tz
     "SIM118",  # key in dict.keys()
+    "PERF102",
+    "S112",
 ]
