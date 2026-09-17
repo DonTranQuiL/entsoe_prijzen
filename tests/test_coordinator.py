@@ -1,13 +1,13 @@
-import pytest
-from unittest.mock import AsyncMock, patch, MagicMock, mock_open
+from unittest.mock import AsyncMock, MagicMock, mock_open, patch
 
+import pytest
 from homeassistant.core import HomeAssistant
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from custom_components.entsoe_prijzen.const import (
-    DOMAIN,
     CONF_API_TOKEN,
     CONF_DOMAIN_ID,
+    DOMAIN,
 )
 from custom_components.entsoe_prijzen.coordinator import EntsoeCoordinator
 
