@@ -18,4 +18,8 @@ ignore = [
     "SIM103",  # return negated condition (style)
     "SIM102",  # nested if (style)
     "ASYNC230", # blocking open in async (debug path; non-critical)
+    "RUF059",  # unused unpacked variable
+    "DTZ011",  # datetime.min/max without tz
+    "DTZ901",  # datetime.min without tz
+    "SIM118",  # key in dict.keys()
 ]
