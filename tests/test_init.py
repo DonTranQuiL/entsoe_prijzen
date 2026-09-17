@@ -39,7 +39,7 @@ def mock_cache_and_coordinator():
         mock_coord.async_request_refresh = AsyncMock()
         mock_coord_cls.return_value = mock_coord
 
-        yield mock_cache, mock_coord
+        yield _mock_cache, mock_coord
 
 
 @pytest.mark.asyncio
@@ -47,7 +47,7 @@ async def test_async_setup_entry_no_cache(
     hass: HomeAssistant, mock_cache_and_coordinator
 ):
     """Test setup when cache is empty (triggers first_refresh)."""
-    mock_cache, mock_coord = mock_cache_and_coordinator
+    _mock_cache, mock_coord = mock_cache_and_coordinator
 
     entry = MockConfigEntry(
         domain=DOMAIN,
@@ -69,7 +69,7 @@ async def test_async_setup_entry_with_cache(
     hass: HomeAssistant, mock_cache_and_coordinator
 ):
     """Test setup when cache exists (triggers background refresh)."""
-    mock_cache, mock_coord = mock_cache_and_coordinator
+    _mock_cache, mock_coord = mock_cache_and_coordinator
 
     # Simulate existing cache data
     mock_cache.load_cache.return_value = [{"price": 0.10}]
@@ -92,7 +92,7 @@ async def test_async_setup_entry_with_cache(
 @pytest.mark.asyncio
 async def test_async_unload_entry(hass: HomeAssistant, mock_cache_and_coordinator):
     """Test successful unload of the integration."""
-    mock_cache, mock_coord = mock_cache_and_coordinator
+    _mock_cache, mock_coord = mock_cache_and_coordinator
     entry = MockConfigEntry(domain=DOMAIN, data={"domain_id": "10YNL----------L"})
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = mock_coord
@@ -111,7 +111,7 @@ async def test_services_and_update_listener(
     hass: HomeAssistant, mock_cache_and_coordinator
 ):
     """Test custom services and the update listener."""
-    mock_cache, mock_coord = mock_cache_and_coordinator
+    _mock_cache, mock_coord = mock_cache_and_coordinator
     entry = MockConfigEntry(domain=DOMAIN, data={"domain_id": "10YNL----------L"})
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = mock_coord
