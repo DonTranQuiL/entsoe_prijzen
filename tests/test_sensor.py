@@ -1,15 +1,16 @@
-import pytest
 from datetime import datetime, timezone
 from unittest.mock import MagicMock, patch
+
+import pytest
 from homeassistant.const import EntityCategory
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from custom_components.entsoe_prijzen.const import DOMAIN
 from custom_components.entsoe_prijzen.sensor import (
+    EntsoeConsecutiveErrorsSensor,
     EntsoeCurrentPriceSensor,
     EntsoeLastUpdateSensor,
     EntsoeLastUpdateStatusSensor,
-    EntsoeConsecutiveErrorsSensor,
 )
 
 

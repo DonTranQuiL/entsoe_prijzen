@@ -1,13 +1,15 @@
 import logging
+
 import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.core import callback
+
 from .const import (
-    DOMAIN,
     CONF_API_TOKEN,
     CONF_DOMAIN_ID,
     CONF_SCAN_INTERVAL,
     DEFAULT_SCAN_INTERVAL,
+    DOMAIN,
     DOMAINS,
 )
 

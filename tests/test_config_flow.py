@@ -1,14 +1,15 @@
-import pytest
 from unittest.mock import patch
+
+import pytest
 from homeassistant.data_entry_flow import FlowResultType
 from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from custom_components.entsoe_prijzen.const import (
-    DOMAIN,
     CONF_API_TOKEN,
     CONF_DOMAIN_ID,
     CONF_SCAN_INTERVAL,
     DEFAULT_SCAN_INTERVAL,
+    DOMAIN,
 )
 
 
