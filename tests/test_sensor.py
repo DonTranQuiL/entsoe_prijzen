@@ -1,4 +1,4 @@
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from unittest.mock import MagicMock, patch
 
 import pytest
@@ -50,7 +50,7 @@ def test_current_price_sensor(mock_coordinator, mock_entry):
     assert sensor.native_unit_of_measurement == "EUR/kWh"
 
     # Mock time so it falls exactly in the middle of our 12:00 block
-    mock_now = datetime(2026, 5, 19, 12, 30, tzinfo=timezone.utc)
+    mock_now = datetime(2026, 5, 19, 12, 30, tzinfo=UTC)
 
     with patch(
         "custom_components.entsoe_prijzen.sensor.dt_util.utcnow", return_value=mock_now

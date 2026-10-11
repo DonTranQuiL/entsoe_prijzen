@@ -93,9 +93,7 @@ class EntsoeCoordinator(DataUpdateCoordinator):
                         continue
 
                     try:
-                        base_time = datetime.fromisoformat(
-                            start_str.replace("Z", "+00:00")
-                        )
+                        base_time = datetime.fromisoformat(start_str)
                     except Exception:
                         continue
 
