@@ -2,6 +2,9 @@
   "domain": "entsoe_prijzen",
   "name": "ENTSO-E Energieprijzen",
   "after_dependencies": [],
+  "categories": [
+    "energy.energy_prices"
+  ],
   "codeowners": [
     "@malosaaa"
   ],
